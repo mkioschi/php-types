@@ -5,9 +5,9 @@ namespace Mkioschi\Types;
 use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Throwable;
 
-final class BoolType
+final readonly class BoolType
 {
-    public readonly bool $value;
+    public bool $value;
 
     protected function __construct(bool $value)
     {
