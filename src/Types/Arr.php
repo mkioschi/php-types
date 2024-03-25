@@ -4,7 +4,6 @@ namespace Mkioschi\Types;
 
 use Countable;
 use Exception;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Iterator;
 
 class Arr implements Countable, Iterator
@@ -43,21 +42,21 @@ class Arr implements Countable, Iterator
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function fromJson(string $value): static
     {
         $parsedValue = json_decode($value, true);
 
         if (!is_array($parsedValue) || json_last_error() !== JSON_ERROR_NONE) {
-            throw new InvalidTypeHttpException(sprintf('\'%s\' is a invalid json string.', $value));
+            throw new InvalidTypeException(sprintf('\'%s\' is a invalid json string.', $value));
         }
 
         return new static($parsedValue);
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFromJson(?string $value): ?static
     {

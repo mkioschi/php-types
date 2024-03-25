@@ -2,8 +2,8 @@
 
 namespace Mkioschi\Tests\Types;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Mkioschi\Types\Arr;
+use Mkioschi\Types\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class ArrTest extends TestCase
@@ -17,7 +17,7 @@ class ArrTest extends TestCase
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function test_should_be_able_to_create_a_valid_arr_from_json_string()
     {

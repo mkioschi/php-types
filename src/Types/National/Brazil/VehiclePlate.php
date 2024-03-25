@@ -2,7 +2,7 @@
 
 namespace Mkioschi\Types\National\Brazil;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 use Mkioschi\Types\Str;
 
 final class VehiclePlate extends Str
@@ -10,12 +10,12 @@ final class VehiclePlate extends Str
     private const string PLATE_REGEX = '/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/';
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         if (!self::isValid($value)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Vehicle Plate type.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Vehicle Plate type.', $value));
         }
 
         parent::__construct($value);

@@ -2,20 +2,19 @@
 
 namespace Mkioschi\Types;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Exception;
 
-final class IncrementalId
+final readonly class IncrementalId
 {
-    public readonly int $value;
+    public int $value;
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(int $value)
     {
         if (!self::isValid($value)) {
-            throw new InvalidTypeHttpException('Invalid IncrementalId value.');
+            throw new InvalidTypeException('Invalid IncrementalId value.');
         }
 
         $this->value = $value;
@@ -27,7 +26,7 @@ final class IncrementalId
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function from(int $value): IncrementalId
     {
@@ -44,7 +43,7 @@ final class IncrementalId
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFrom(int|null $value): ?IncrementalId
     {
@@ -66,7 +65,7 @@ final class IncrementalId
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function next(): IncrementalId
     {
@@ -74,7 +73,7 @@ final class IncrementalId
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function previous(): ?IncrementalId
     {

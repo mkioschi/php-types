@@ -3,18 +3,18 @@
 namespace Mkioschi\Types\Web;
 
 use Mkioschi\Enums\UriScheme;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 use Mkioschi\Types\Str;
 
 final class Url extends Str
 {
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         if (!self::isValid($value)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Url type.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Url type.', $value));
         }
 
         parent::__construct($value);

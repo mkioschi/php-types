@@ -2,25 +2,25 @@
 
 namespace Mkioschi\Types\Misc;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Exception;
+use Mkioschi\Types\InvalidTypeException;
 
 final class Password
 {
-    const MIN_LENGTH = 6;
-    const MAX_LENGTH = 45;
+    const int MIN_LENGTH = 6;
+    const int MAX_LENGTH = 45;
 
     public readonly string $value;
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         $errors = self::validator($value);
 
         if ($errors) {
-            throw new InvalidTypeHttpException(errors: $errors);
+            throw new InvalidTypeException(errors: $errors);
         }
 
         $this->value = $value;
@@ -45,7 +45,7 @@ final class Password
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function from(string $value): Password
     {
@@ -62,7 +62,7 @@ final class Password
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFrom(?string $value): ?Password
     {

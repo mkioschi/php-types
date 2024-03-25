@@ -2,7 +2,6 @@
 
 namespace Mkioschi\Types;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Throwable;
 
 final readonly class BoolType
@@ -53,21 +52,21 @@ final readonly class BoolType
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function fromString(string $value): BoolType
     {
         $filteredValue = filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 
         if (!BoolType::isValid($filteredValue)) {
-            throw new InvalidTypeHttpException("Invalid truthy or falsy string.");
+            throw new InvalidTypeException("Invalid truthy or falsy string.");
         }
 
         return new BoolType($filteredValue);
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFromString(?string $value): ?BoolType
     {

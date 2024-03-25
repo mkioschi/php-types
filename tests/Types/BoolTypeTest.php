@@ -2,8 +2,8 @@
 
 namespace Mkioschi\Tests\Types;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Mkioschi\Types\BoolType;
+use Mkioschi\Types\InvalidTypeException;
 use PHPUnit\Framework\TestCase;
 
 class BoolTypeTest extends TestCase
@@ -25,7 +25,7 @@ class BoolTypeTest extends TestCase
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function test_should_be_able_to_create_a_valid_boolean_from_a_truthy_string()
     {
@@ -38,7 +38,7 @@ class BoolTypeTest extends TestCase
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function test_should_be_able_to_create_a_valid_boolean_from_a_falsy_string()
     {

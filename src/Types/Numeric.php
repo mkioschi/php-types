@@ -2,12 +2,11 @@
 
 namespace Mkioschi\Types;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Exception;
 
-class Numeric
+readonly class Numeric
 {
-    public readonly float|int $value;
+    public float|int $value;
 
     protected function __construct(float|int $value)
     {
@@ -92,7 +91,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function normalize(float|int|self $value): float|int
     {
@@ -104,14 +103,14 @@ class Numeric
             return $value->value;
         }
 
-        throw new InvalidTypeHttpException(message: sprintf(
+        throw new InvalidTypeException(message: sprintf(
             'Only %s|int|float are accepted in this operation.',
             static::class
         ));
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function sum(float|int|self $value): static
     {
@@ -121,7 +120,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function minus(float|int|self $value): static
     {
@@ -131,7 +130,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function multiply(float|int|self $multiplier): static
     {
@@ -141,7 +140,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function divide(float|int|self $divisor): static
     {
@@ -172,7 +171,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function percentageRatio(float|int|self $value): float|int
     {
@@ -216,7 +215,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function lessThan(float|int|self $value): bool
     {
@@ -224,7 +223,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function lessThanOrEqualTo(float|int|self $value): bool
     {
@@ -232,7 +231,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function greaterThan(float|int|self $value): bool
     {
@@ -240,7 +239,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function greaterThanOrEqualTo(float|int|self $value): bool
     {
@@ -248,7 +247,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function equalTo(float|int|self $value): bool
     {
@@ -256,7 +255,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function notEqualTo(float|int|self $value): bool
     {
@@ -264,7 +263,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function between(float|int|self $minValue, float|int|self $maxValue): bool
     {
@@ -272,7 +271,7 @@ class Numeric
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function betweenOrEqualThen(float|int|self $minValue, float|int|self $maxValue): bool
     {

@@ -2,9 +2,9 @@
 
 namespace Mkioschi\Types\Address\PostalCode;
 
-use Mkioschi\Enums\Country;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Exception;
+use Mkioschi\Enums\Country;
+use Mkioschi\Types\InvalidTypeException;
 
 final class PostalCode
 {
@@ -13,14 +13,14 @@ final class PostalCode
     private PostalCodeStandard $postalCodeStandard;
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value, Country $country)
     {
         $this->postalCodeStandard = self::buildStandardByCountry($country);
 
         if (!$this->postalCodeStandard->isValid($value)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid PostalCode type.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid PostalCode type.', $value));
         }
 
         $this->value = $value;
@@ -42,7 +42,7 @@ final class PostalCode
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function from(string $value, Country $country): PostalCode
     {
@@ -59,7 +59,7 @@ final class PostalCode
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFrom(?string $value, ?Country $country): ?PostalCode
     {

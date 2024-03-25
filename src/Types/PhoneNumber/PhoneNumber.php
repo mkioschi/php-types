@@ -2,9 +2,9 @@
 
 namespace Mkioschi\Types\PhoneNumber;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
-use Mkioschi\Types\Str;
 use Exception;
+use Mkioschi\Types\InvalidTypeException;
+use Mkioschi\Types\Str;
 
 /**
  * Phone Number
@@ -24,14 +24,14 @@ final class PhoneNumber
     private PhoneNumberStandard $standardPhoneNumber;
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         $valueExploded = explode(' ', $value);
 
         if (count($valueExploded) < 3) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Phone Number.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Phone Number.', $value));
         }
 
         $this->countryCode = Str::extractNumbers(array_shift($valueExploded));
@@ -40,7 +40,7 @@ final class PhoneNumber
         $this->standardPhoneNumber = $this->buildStandardPhoneNumber($this->countryCode);
 
         if (!$this->standardPhoneNumber->isValid($this->countryCode, $this->areaCode, $this->localNumber)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Phone Number.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Phone Number.', $value));
         }
 
         $this->value = sprintf(
@@ -77,7 +77,7 @@ final class PhoneNumber
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function from(string $value): PhoneNumber
     {
@@ -94,7 +94,7 @@ final class PhoneNumber
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function innFrom(?string $value): ?PhoneNumber
     {

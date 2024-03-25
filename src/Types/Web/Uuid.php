@@ -2,19 +2,19 @@
 
 namespace Mkioschi\Types\Web;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 use Mkioschi\Types\Str;
 use Ramsey\Uuid\Uuid as ThirdPartyUuid;
 
 final class Uuid extends Str
 {
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         if (!self::isValid($value)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Uuid type.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Uuid type.', $value));
         }
 
         parent::__construct(strtolower($value));

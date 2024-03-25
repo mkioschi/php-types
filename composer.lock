@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9efcd7fcecc3e88eb178adad86addbc1",
+    "content-hash": "f60a0905f25ea6d08db60b0b5d620d7f",
     "packages": [
         {
             "name": "brick/math",
@@ -178,51 +178,6 @@
                 "source": "https://github.com/mkioschi/php-enums/tree/v1.0.1"
             },
             "time": "2023-12-13T23:41:39+00:00"
-        },
-        {
-            "name": "mkioschi/php-exceptions",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mkioschi/php-exceptions.git",
-                "reference": "117e8a8cbe8826a808e4418db76e200b4e2635c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mkioschi/php-exceptions/zipball/117e8a8cbe8826a808e4418db76e200b4e2635c5",
-                "reference": "117e8a8cbe8826a808e4418db76e200b4e2635c5",
-                "shasum": ""
-            },
-            "require": {
-                "mkioschi/php-enums": "^1.0",
-                "php": ">=8.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mkioschi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mayko Kioschi",
-                    "email": "mkioschi@gmail.com"
-                }
-            ],
-            "description": "Common exceptions for clean code PHP projects.",
-            "homepage": "https://github.com/mkioschi/php-exceptions",
-            "support": {
-                "issues": "https://github.com/mkioschi/php-exceptions/issues",
-                "source": "https://github.com/mkioschi/php-exceptions/tree/v1.0.1"
-            },
-            "time": "2023-12-13T23:53:31+00:00"
         },
         {
             "name": "ramsey/collection",

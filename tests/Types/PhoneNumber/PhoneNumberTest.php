@@ -2,14 +2,14 @@
 
 namespace Mkioschi\Tests\Types\PhoneNumber;
 
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 use Mkioschi\Types\PhoneNumber\PhoneNumber;
 use PHPUnit\Framework\TestCase;
 
 class PhoneNumberTest extends TestCase
 {
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function test_should_be_able_to_create_a_valid_br_phone_number()
     {
@@ -29,7 +29,7 @@ class PhoneNumberTest extends TestCase
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public function test_should_be_able_to_create_a_valid_us_phone_number()
     {

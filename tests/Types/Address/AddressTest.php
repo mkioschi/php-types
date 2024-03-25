@@ -3,15 +3,11 @@
 namespace Mkioschi\Tests\Types\Address;
 
 use Mkioschi\Enums\Country;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
 use Mkioschi\Types\Address\Address;
 use PHPUnit\Framework\TestCase;
 
 class AddressTest extends TestCase
 {
-    /**
-     * @throws InvalidTypeHttpException
-     */
     public function test_should_be_able_to_create_a_valid_address()
     {
         $address = Address::from(
@@ -35,9 +31,6 @@ class AddressTest extends TestCase
         $this->assertEquals('87550-000', $address->postalCode);
     }
 
-    /**
-     * @throws InvalidTypeHttpException
-     */
     public function test_should_be_able_to_create_a_valid_address_from_array()
     {
         $addressArray = [

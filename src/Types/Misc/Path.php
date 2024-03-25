@@ -3,18 +3,18 @@
 namespace Mkioschi\Types\Misc;
 
 use Exception;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 use Mkioschi\Types\Str;
 
 final class Path extends Str
 {
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(string $value)
     {
         if (!self::isValid($value)) {
-            throw new InvalidTypeHttpException(sprintf('%s is an invalid Path type.', $value));
+            throw new InvalidTypeException(sprintf('%s is an invalid Path type.', $value));
         }
 
         parent::__construct($value);

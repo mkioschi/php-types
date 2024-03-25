@@ -3,7 +3,7 @@
 namespace Mkioschi\Types\Address;
 
 use Mkioschi\Enums\Country;
-use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
+use Mkioschi\Types\InvalidTypeException;
 
 /**
  * Fields of Address class:
@@ -16,19 +16,19 @@ use Mkioschi\Exceptions\Http\InvalidTypeHttpException;
  * - postal_code: "<Postal/Zip Code>"
  * - po_box: "<P.O. Box>"
  */
-final class Address
+final readonly class Address
 {
-    public readonly Country $country;
-    public readonly string $addressLine1;
-    public readonly ?string $addressLine2;
-    public readonly ?string $dependentLocality;
-    public readonly ?string $locality;
-    public readonly ?string $adminArea;
-    public readonly ?string $postalCode;
-    public readonly ?string $poBox;
+    public Country $country;
+    public string $addressLine1;
+    public ?string $addressLine2;
+    public ?string $dependentLocality;
+    public ?string $locality;
+    public ?string $adminArea;
+    public ?string $postalCode;
+    public ?string $poBox;
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     protected function __construct(
         Country $country,
@@ -53,7 +53,7 @@ final class Address
         );
 
         if ($errors) {
-            throw new InvalidTypeHttpException(errors: $errors);
+            throw new InvalidTypeException(errors: $errors);
         }
 
         $this->country = $country;
@@ -100,7 +100,7 @@ final class Address
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function from(
         Country $country,
@@ -126,7 +126,7 @@ final class Address
     }
 
     /**
-     * @throws InvalidTypeHttpException
+     * @throws InvalidTypeException
      */
     public static function fromArray(array $addressArray): Address
     {
