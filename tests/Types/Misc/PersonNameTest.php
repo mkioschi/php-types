@@ -14,8 +14,8 @@ class PersonNameTest extends TestCase
     public function test_should_be_able_to_create_a_valid_person_name()
     {
         $this->assertInstanceOf(PersonName::class, PersonName::from('John', 'Doe'));
-        $this->assertEquals('John', PersonName::from('John', 'Doe')->firstName);
-        $this->assertEquals('Doe', PersonName::from('John', 'Doe')->lastName);
+        $this->assertEquals('John', PersonName::from('John', 'Doe')->name);
+        $this->assertEquals('Doe', PersonName::from('John', 'Doe')->surname);
         $this->assertEquals('John Doe', PersonName::from('John', 'Doe')->getFullName());
     }
 }

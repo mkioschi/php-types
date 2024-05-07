@@ -2,41 +2,41 @@
 
 namespace Mkioschi\Types\Misc;
 
-class PersonName
+readonly class PersonName
 {
-    public readonly string $firstName;
-    public readonly string $lastName;
+    public string $name;
+    public string $surname;
 
-    protected function __construct(string $firstName, string $lastName)
+    protected function __construct(string $name, string $surname)
     {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        $this->name = $name;
+        $this->surname = $surname;
     }
 
-    public static function from(string $firstName, string $lastName): PersonName
+    public static function from(string $name, string $surname): PersonName
     {
-        return new PersonName($firstName, $lastName);
+        return new PersonName($name, $surname);
     }
 
-    public static function innFrom(?string $firstName, ?string $lastName): ?PersonName
+    public static function innFrom(?string $name, ?string $surname): ?PersonName
     {
-        if (is_null($firstName) || is_null($lastName)) {
+        if (is_null($name) || is_null($surname)) {
             return null;
         }
 
-        return new PersonName($firstName, $lastName);
+        return new PersonName($name, $surname);
     }
 
     public function toArray(): array
     {
         return [
-            'first_name' => $this->firstName,
-            'last_name' => $this->lastName,
+            'first_name' => $this->name,
+            'last_name' => $this->surname,
         ];
     }
 
     public function getFullName(): string
     {
-        return sprintf('%s %s', $this->firstName, $this->lastName);
+        return sprintf('%s %s', $this->name, $this->surname);
     }
 }
