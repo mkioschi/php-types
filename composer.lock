@@ -142,20 +142,20 @@
         },
         {
             "name": "mkioschi/php-enums",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkioschi/php-enums.git",
-                "reference": "1f5827a82eb5d55a9f6e96800b9328a308ffac37"
+                "reference": "6795620d75b354570995f3703baac771c9d2456b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkioschi/php-enums/zipball/1f5827a82eb5d55a9f6e96800b9328a308ffac37",
-                "reference": "1f5827a82eb5d55a9f6e96800b9328a308ffac37",
+                "url": "https://api.github.com/repos/mkioschi/php-enums/zipball/6795620d75b354570995f3703baac771c9d2456b",
+                "reference": "6795620d75b354570995f3703baac771c9d2456b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.3"
+                "php": ">=8.4"
             },
             "require-dev": {
                 "phpunit/phpunit": "^9.5"
@@ -180,9 +180,9 @@
             "homepage": "https://github.com/mkioschi/php-enums",
             "support": {
                 "issues": "https://github.com/mkioschi/php-enums/issues",
-                "source": "https://github.com/mkioschi/php-enums/tree/v1.0.2"
+                "source": "https://github.com/mkioschi/php-enums/tree/v1.0.3"
             },
-            "time": "2024-10-09T16:30:38+00:00"
+            "time": "2024-11-30T22:16:40+00:00"
         },
         {
             "name": "ramsey/collection",
