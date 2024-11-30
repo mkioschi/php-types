@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Mkioschi\Tests\Types;
 
@@ -12,10 +12,8 @@ class BoolTypeTest extends TestCase
     {
         $this->assertInstanceOf(BoolType::class, BoolType::from(true));
         $this->assertEquals('true', (string)BoolType::from(true));
-        $this->assertFalse(BoolType::tryFrom(false)->value);
         $this->assertTrue(BoolType::innFrom(true)->value);
-        $this->assertEquals(null, BoolType::tryFrom('true'));
-        $this->assertEquals(null, BoolType::innFrom(null));
+        $this->assertNull(BoolType::innFrom(null));
         $this->assertTrue(BoolType::from(true)->isTrue());
         $this->assertFalse(BoolType::from(false)->isTrue());
         $this->assertTrue(BoolType::from(false)->isFalse());

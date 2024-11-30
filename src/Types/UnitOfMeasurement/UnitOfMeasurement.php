@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Mkioschi\Types\UnitOfMeasurement;
 
@@ -66,7 +66,7 @@ abstract class UnitOfMeasurement
         return (string)$this->value;
     }
 
-    public function getHumansFormat(bool $abbreviated = true, int $maxDecimalPlaces = 2, Locale $locale = null): string
+    public function getHumansFormat(bool $abbreviated = true, int $maxDecimalPlaces = 2, ?Locale $locale = null): string
     {
         return self::formatForHumans($this->value, $abbreviated, $maxDecimalPlaces, $locale ?? self::$defaultLocale);
     }
@@ -75,7 +75,7 @@ abstract class UnitOfMeasurement
         float|int $value,
         bool $abbreviated = true,
         int $maxDecimalPlaces = 2,
-        Locale $locale = null
+        ?Locale $locale = null
     ): string
     {
         $locale = $locale ?? self::$defaultLocale;

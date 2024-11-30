@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Mkioschi\Types;
 
@@ -31,15 +31,6 @@ final readonly class BoolType
     public static function fromFalse(): BoolType
     {
         return new BoolType(false);
-    }
-
-    public static function tryFrom(mixed $value): ?BoolType
-    {
-        try {
-            return new BoolType($value);
-        } catch (Throwable) {
-            return null;
-        }
     }
 
     public static function innFrom(mixed $value): ?BoolType

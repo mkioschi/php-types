@@ -1,42 +1,42 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Mkioschi\Types\Misc;
 
-readonly class PersonName
+class PersonName
 {
-    public string $name;
-    public string $surname;
+    public readonly string $firstName;
 
-    protected function __construct(string $name, string $surname)
-    {
-        $this->name = $name;
-        $this->surname = $surname;
+    public readonly string $lastName;
+
+    public string $fullName {
+        get => "$this->firstName $this->lastName";
     }
 
-    public static function from(string $name, string $surname): PersonName
+    protected function __construct(string $firstName, string $lastName)
     {
-        return new PersonName($name, $surname);
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
     }
 
-    public static function innFrom(?string $name, ?string $surname): ?PersonName
+    public static function from(string $firstName, string $lastName): PersonName
     {
-        if (is_null($name) || is_null($surname)) {
+        return new PersonName($firstName, $lastName);
+    }
+
+    public static function innFrom(?string $firstName, ?string $lastName): ?PersonName
+    {
+        if (is_null($firstName) || is_null($lastName)) {
             return null;
         }
 
-        return new PersonName($name, $surname);
+        return new PersonName($firstName, $lastName);
     }
 
     public function toArray(): array
     {
         return [
-            'first_name' => $this->name,
-            'last_name' => $this->surname,
+            'first_name' => $this->firstName,
+            'last_name' => $this->lastName,
         ];
-    }
-
-    public function getFullName(): string
-    {
-        return sprintf('%s %s', $this->name, $this->surname);
     }
 }

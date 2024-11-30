@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace Mkioschi\Types\Misc;
 
@@ -29,7 +29,7 @@ final class Money extends AbstractType
         self::$defaultLocale = Locale::EN_US;
     }
 
-    public static function from(float $amount, Currency $currency = null): Money
+    public static function from(float $amount, ?Currency $currency = null): Money
     {
         return new Money($amount, $currency ?? self::$defaultCurrency);
     }
@@ -48,17 +48,17 @@ final class Money extends AbstractType
         return self::fromArray($array);
     }
 
-    public static function fromZero(Currency $currency = null): Money
+    public static function fromZero(?Currency $currency = null): Money
     {
         return new Money(0, $currency ?? self::$defaultCurrency);
     }
 
-    public static function init(Currency $currency = null): Money
+    public static function init(?Currency $currency = null): Money
     {
         return self::fromZero($currency ?? self::$defaultCurrency);
     }
 
-    public static function innFrom(?float $amount, Currency $currency = null): ?Money
+    public static function innFrom(?float $amount, ?Currency $currency = null): ?Money
     {
         if (is_null($amount)) {
             return null;
@@ -67,7 +67,7 @@ final class Money extends AbstractType
         return new Money($amount, $currency ?? self::$defaultCurrency);
     }
 
-    public function getHumansFormat(Locale $locale = null): string
+    public function getHumansFormat(?Locale $locale = null): string
     {
         $locale = $locale ?? self::$defaultLocale;
         $formatter = new NumberFormatter($locale->value, NumberFormatter::CURRENCY);
@@ -80,12 +80,12 @@ final class Money extends AbstractType
         return $this->getHumansFormat();
     }
 
-    public function getSymbol(Locale $locale = null): string
+    public function getSymbol(?Locale $locale = null): string
     {
         return self::getSymbolByCurrency($this->currency, $locale ?? self::$defaultLocale);
     }
 
-    public static function getSymbolByCurrency(Currency $currency, Locale $locale = null): string
+    public static function getSymbolByCurrency(?Currency $currency, ?Locale $locale = null): string
     {
         $locale = $locale ?? self::$defaultLocale;
         $formatter = new NumberFormatter(
@@ -107,13 +107,7 @@ final class Money extends AbstractType
 
         $baseCurrency = array_shift($currencies);
 
-        foreach ($currencies as $currency) {
-            if ($baseCurrency !== $currency) {
-                return false;
-            }
-        }
-
-        return true;
+        return array_all($currencies, fn($currency) => $baseCurrency === $currency);
     }
 
     /**
