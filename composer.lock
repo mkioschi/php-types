@@ -142,16 +142,16 @@
         },
         {
             "name": "mkioschi/php-enums",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mkioschi/php-enums.git",
-                "reference": "6795620d75b354570995f3703baac771c9d2456b"
+                "reference": "fa4a228bde62cd9ac6aa236c7745776da47fd998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mkioschi/php-enums/zipball/6795620d75b354570995f3703baac771c9d2456b",
-                "reference": "6795620d75b354570995f3703baac771c9d2456b",
+                "url": "https://api.github.com/repos/mkioschi/php-enums/zipball/fa4a228bde62cd9ac6aa236c7745776da47fd998",
+                "reference": "fa4a228bde62cd9ac6aa236c7745776da47fd998",
                 "shasum": ""
             },
             "require": {
@@ -180,9 +180,9 @@
             "homepage": "https://github.com/mkioschi/php-enums",
             "support": {
                 "issues": "https://github.com/mkioschi/php-enums/issues",
-                "source": "https://github.com/mkioschi/php-enums/tree/v1.0.3"
+                "source": "https://github.com/mkioschi/php-enums/tree/v1.0.4"
             },
-            "time": "2024-11-30T22:16:40+00:00"
+            "time": "2025-01-04T23:38:32+00:00"
         },
         {
             "name": "ramsey/collection",
