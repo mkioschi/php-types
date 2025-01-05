@@ -2,9 +2,10 @@
 
 namespace Mkioschi\Types\Web;
 
+use Mkioschi\Types\AbstractType;
 use Mkioschi\Types\InvalidTypeException;
 
-readonly class MimeType
+readonly class MimeType extends AbstractType
 {
     private const array MIMETYPES = [
         'audio/3gpp2',
@@ -85,5 +86,10 @@ readonly class MimeType
         }
 
         return new MimeType($value);
+    }
+
+    public function __toString(): string
+    {
+        return $this->value;
     }
 }

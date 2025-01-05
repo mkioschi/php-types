@@ -2,7 +2,7 @@
 
 namespace Mkioschi\Types;
 
-abstract class AbstractType implements TypeInterface
+abstract readonly class AbstractType implements TypeInterface
 {
     public function clone(): static
     {
